@@ -64,7 +64,7 @@ int config_checker(Config config) {
             cerr << "Please set level as a positive integer in config.txt." << endl;
             exit(1);
         }    
-    } else if (config.mode != 0 || config.mode != 1) {
+    } else if (config.mode != 0) {
         cerr << "Error: mode is invalid." << endl;
         cerr << "mode must be 0 or 1." << endl;
         exit(1);
@@ -140,8 +140,6 @@ Config config_loader(string path) {
     } else {
         exit(1);
     };
-
-    config_printer(config);
 
     ifs.close();
     return config;
