@@ -6,7 +6,7 @@ using namespace std;
 
 struct Config {
     string input_folder;
-    string output_folder;
+    string output_file;
     int mode;
     int width;
     int height;
@@ -33,9 +33,9 @@ int config_checker(Config config) {
         cerr << "Please set input_folder in config.txt." << endl;
         exit(1);
     }
-    if (config.output_folder == "") {
-        cerr << "Error: output_folder is not set." << endl;
-        cerr << "Please set output_folder in config.txt." << endl;
+    if (config.output_file == "") {
+        cerr << "Error: output_file is not set." << endl;
+        cerr << "Please set output_file in config.txt." << endl;
         exit(1);
     }
     if (config.width == 0) {
@@ -75,7 +75,7 @@ int config_checker(Config config) {
 void config_printer(Config config) {
     cout << "********************************************" << endl;
     cout << "input_folder: " << config.input_folder << endl;
-    cout << "output_folder: " << config.output_folder << endl;
+    cout << "output_file: " << config.output_file << endl;
     cout << "mode: " << config.mode << endl;
     cout << "width: " << config.width << endl;
     cout << "height: " << config.height << endl;
@@ -95,7 +95,7 @@ Config config_loader(string path) {
 
     Config config = {
         .input_folder = "",
-        .output_folder = "",
+        .output_file = "",
         .mode = -1,
         .width = 0,
         .height = 0,
@@ -118,8 +118,8 @@ Config config_loader(string path) {
 
         if (key == "input_folder") {
             config.input_folder = value;
-        } else if (key == "output_folder") {
-            config.output_folder = value;
+        } else if (key == "output_file") {
+            config.output_file = value;
         } else if (key == "width") {
             config.width = stoi(value);
         } else if (key == "height") {

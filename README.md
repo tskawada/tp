@@ -22,7 +22,7 @@ All you need to prepare is a jpg images and a configuration file!
 - In normal mode (mode: 0), level need not be specified. If specified, it is ignored.
 ```conf
 input_folder=../data/from2/
-output_folder=../data/to/
+output_file=../data/to/output.avi
 width=5872  # width of the image
 height=3915  # height of the image
 num_of_frames=200 
