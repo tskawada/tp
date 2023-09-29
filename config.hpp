@@ -12,7 +12,8 @@ struct Config {
     int height;
     int num_of_frames;
     double fps;
-    int level;
+    int threshold;
+    float alpha;
 };
 
 void split_string(const string& input, char delimiter, string& key, string& value) {
@@ -59,11 +60,16 @@ int config_checker(Config config) {
         exit(1);
     }
     if (config.mode == 1) {
-        if (config.level == 0) {
-            cerr << "Error: level is not set or invalid." << endl;
-            cerr << "Please set level as a positive integer in config.txt." << endl;
+        if (config.threshold == 0) {
+            cerr << "Error: threshold is not set or invalid." << endl;
+            cerr << "Please set threshold as a positive integer in config.txt." << endl;
             exit(1);
-        }    
+        }
+        if (config.alpha == 0.0) {
+            cerr << "Error: alpha is not set or invalid." << endl;
+            cerr << "Please set alpha as a float number in config.txt." << endl;
+            exit(1);
+        }
     } else if (config.mode != 0) {
         cerr << "Error: mode is invalid." << endl;
         cerr << "mode must be 0 or 1." << endl;
@@ -81,7 +87,8 @@ void config_printer(Config config) {
     cout << "height: " << config.height << endl;
     cout << "num_of_frames: " << config.num_of_frames << endl;
     cout << "fps: " << config.fps << endl;
-    cout << "level: " << config.level << endl;
+    if (config.threshold != 0) cout << "threshold: " << config.threshold << endl;
+    if (config.alpha != 0.0) cout << "alpha: " << config.alpha << endl;
     cout << "********************************************" << endl;
 }
 
@@ -101,7 +108,8 @@ Config config_loader(string path) {
         .height = 0,
         .num_of_frames = 0,
         .fps = 0.0,
-        .level = 0,
+        .threshold = 0,
+        .alpha = 0.0
     };
 
     if (ifs.fail()) {
@@ -128,8 +136,10 @@ Config config_loader(string path) {
             config.num_of_frames = stoi(value);
         } else if (key == "fps") {
             config.fps = stod(value);
-        } else if (key == "level") {
-            config.level = stoi(value);
+        } else if (key == "threshold") {
+            config.threshold = stoi(value);
+        } else if (key == "alpha") {
+            config.alpha = stod(value);
         } else if (key == "mode") {
             config.mode = stoi(value);
         }
