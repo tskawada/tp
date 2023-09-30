@@ -39,16 +39,6 @@ int config_checker(Config config) {
         cerr << "Please set output_file in config.txt." << endl;
         exit(1);
     }
-    if (config.width == 0) {
-        cerr << "Error: width is not set or invalid." << endl;
-        cerr << "Please set width as a postive integer in config.txt." << endl;
-        exit(1);
-    }
-    if (config.height == 0) {
-        cerr << "Error: height is not set or invalid." << endl;
-        cerr << "Please set height as positive integer in config.txt." << endl;
-        exit(1);
-    }
     if (config.num_of_frames == 0) {
         cerr << "Error: num_of_frames is not set or invalid." << endl;
         cerr << "Please set num_of_frames as a positive integer in config.txt." << endl;
@@ -128,10 +118,6 @@ Config config_loader(string path) {
             config.input_folder = value;
         } else if (key == "output_file") {
             config.output_file = value;
-        } else if (key == "width") {
-            config.width = stoi(value);
-        } else if (key == "height") {
-            config.height = stoi(value);
         } else if (key == "num_of_frames") {
             config.num_of_frames = stoi(value);
         } else if (key == "fps") {
