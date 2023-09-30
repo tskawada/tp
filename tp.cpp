@@ -2,7 +2,6 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "progress.hpp"
 #include "config.hpp"
 #include "imutil.hpp"
 #include "eta.hpp"
@@ -11,6 +10,8 @@ using namespace std;
 using namespace cv;
 
 int normal_timelapse(Config config) {
+    ETA eta(config.num_of_frames);
+
     char image_name[100];    
     Mat image = Mat::zeros(config.height, config.width, CV_8UC3);
 
@@ -25,8 +26,7 @@ int normal_timelapse(Config config) {
     );
     if (!writer.isOpened()) return -1;
     for (int i = 1; i <= config.num_of_frames; i++) {
-
-        progress_bar(i, config.num_of_frames);
+        eta.update();
 
         sprintf(image_name, "../data/from2/%d.jpg", i);
 
