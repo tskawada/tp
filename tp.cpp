@@ -1,6 +1,7 @@
 #include <opencv2/opencv.hpp>
 #include "progress.hpp"
 #include "config.hpp"
+#include "imutil.hpp"
 
 #include <iostream>
 #include <stdio.h>
@@ -90,6 +91,9 @@ int afterimage_timelapse(Config config) {
 
 int main() {
     Config config = config_loader("../assets/example.cfg");
+    ImageSize image_size = get_image_size(config);
+    config.width = image_size.width;
+    config.height = image_size.height;
 
     config_printer(config);
 
