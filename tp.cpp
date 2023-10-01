@@ -2,10 +2,10 @@
 #include <iostream>
 #include <stdio.h>
 
-#include "config.hpp"
-#include "imutil.hpp"
-#include "eta.hpp"
-#include "file.hpp"
+#include "include/config.hpp"
+#include "include/imutil.hpp"
+#include "include/eta.hpp"
+#include "include/file.hpp"
 
 using namespace std;
 using namespace cv;
