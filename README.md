@@ -4,6 +4,8 @@
 It generates uncompressed AVI files. Compression is usually required as a post-processing step by selecting an appropriate codec. 
 [Any Video Converter](https://www.any-video-converter.jp/) is available as a free software.
 
+[YouTube video](https://youtu.be/ZtHwgKmgkO4)
+
 ## Build and Run
 ```bash
 sudo apt install libopencv-dev cmake
@@ -43,5 +45,3 @@ There are several examples of this work. Not all use tp.
 ## Notes
 ### Tips and Setting guide
 see [HOWTO.md](./docs/HOWTO.md)
-
-### TODO
