@@ -31,6 +31,8 @@ threshold=20 # Specifies the brightness threshold of the pixel to be synthesized
 alpha=1.0  # Specifies the afterimage level
 ```
 
+https://github.com/tskawada/tp/assets/94617881/622c5a62-fafe-4bbc-99ed-53f01a6c189a
+
 ## License
 MIT License
 
