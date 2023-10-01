@@ -16,6 +16,8 @@ make
 ./tp ./assets/example.cfg
 ```
 
+https://github.com/tskawada/tp/assets/94617881/6e48ffa0-13ba-4430-88b0-aa77a735bfb5
+
 ## Usage
 All you need to prepare is a jpg images and a configuration file!
 
@@ -33,8 +35,6 @@ threshold=20 # Specifies the brightness threshold of the pixel to be synthesized
 alpha=1.0  # Specifies the afterimage level
 ```
 
-https://github.com/tskawada/tp/assets/94617881/622c5a62-fafe-4bbc-99ed-53f01a6c189a
-
 ## License
 MIT License
 
@@ -45,3 +45,7 @@ There are several examples of this work. Not all use tp.
 ## Notes
 ### Tips and Setting guide
 see [HOWTO.md](./docs/HOWTO.md)
+
+
+
+
