@@ -40,9 +40,8 @@ int config_checker(Config config) {
         exit(1);
     }
     if (config.num_of_frames == 0) {
-        cerr << "Error: num_of_frames is not set or invalid." << endl;
-        cerr << "Please set num_of_frames as a positive integer in config.txt." << endl;
-        exit(1);
+        cout << "Info: num_of_frames is not set" << endl;
+        cout << "All images in input_folder will be used." << endl;
     }
     if (config.fps == 0.0) {
         cerr << "Error: fps is not set or invalid." << endl;

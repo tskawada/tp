@@ -16,4 +16,4 @@ target_link_libraries(tp
     ${OpenCV_LIBRARIES}
 )
 
-target_compile_options(tp PUBLIC -O2 -Wall)
+target_compile_options(tp PUBLIC -O2)

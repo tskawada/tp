@@ -5,7 +5,7 @@
 It generates uncompressed AVI files. Compression is usually required as a post-processing step by selecting an appropriate codec. 
 [Any Video Converter](https://www.any-video-converter.jp/) is available as a free software.
 
-## How to build
+## Build and Run
 ```bash
 sudo apt install libopencv-dev cmake
 mkdir build
@@ -21,11 +21,11 @@ All you need to prepare is a jpg images and a configuration file!
 - Brightness adjustment and deflicker of jpg files must have been carried out beforehand. [LRTimelapse](https://lrtimelapse.com/) can be used for this.
 - jpg filenames must be sorted in time order starting with 1.
 - Comment out (#) is valid in the configuration file.
-- In normal mode (mode: 0), level need not be specified. If specified, it is ignored.
+- In normal mode (mode: 0), alpha and threshold need not be specified. If specified, it is ignored.
 ```conf
 input_folder=/path/to/input
 output_file=/path/to/output/movie.avi
-num_of_frames=200 
+num_of_frames=200 # Specifies the number of frames to be used. If not specified, all images in input_folder will be used
 fps=24.0  # frame per second
 mode=0  # 0: normal, 1: afterimage
 threshold=20 # Specifies the brightness threshold of the pixel to be synthesized in comparison brightness synthesis
