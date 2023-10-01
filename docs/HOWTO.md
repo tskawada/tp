@@ -5,7 +5,7 @@
 ## 1. Preprocessing
 Exposure changes should be kept gradual, especially for Holy Grail time-lapse sequence. Deflicker is also important. You can see them in the video below. In short, careful preprocessing produces excellent results.
 
-
+https://github.com/tskawada/tp/assets/94617881/301cad40-e19a-4170-8a78-e21121938627
 
 The images will be placed in any folder as follows:
 ```
@@ -29,3 +29,5 @@ All footage is set to threshold=20. The following video illustrates the change i
 - alpha=0.5
 - alpha=1.0
 - alpha=2.0
+
+https://github.com/tskawada/tp/assets/94617881/50ce3a1c-139e-404f-b0d9-45cc4d11fccb
