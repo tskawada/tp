@@ -1,5 +1,4 @@
 # tp
-![License](https://img.shields.io/badge/lisence-MIT-blue)
 
 **tp** is a command line tool to generate (afterimage) time-lapse video from a sequence of jpg images.  
 It generates uncompressed AVI files. Compression is usually required as a post-processing step by selecting an appropriate codec. 
