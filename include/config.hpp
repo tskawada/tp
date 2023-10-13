@@ -82,9 +82,6 @@ void config_printer(Config config) {
 }
 
 Config config_loader(string path) {
-    if (path == "") {
-        path = "./assets/example.cfg";
-    }
     ifstream ifs(path);
     string str;
     string key, value;
