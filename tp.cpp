@@ -19,10 +19,10 @@ int normal_timelapse(Config config, Input input_att) {
     // output movie file, non-compresse avi format
     VideoWriter writer;
     writer.open(
-        config.output_file, 
-        VideoWriter::fourcc('I', 'Y', 'U', 'V'), 
-        config.fps, 
-        Size(config.width, config.height), 
+        config.output_file,
+        VideoWriter::fourcc('I', 'Y', 'U', 'V'),
+        config.fps,
+        Size(config.width, config.height),
         true
     );
     if (!writer.isOpened()) return -1;
@@ -51,10 +51,10 @@ int afterimage_timelapse(Config config, Input input_att) {
     // output movie file, non-compressed avi format
     VideoWriter writer;
     writer.open(
-        config.output_file, 
-        VideoWriter::fourcc('I', 'Y', 'U', 'V'), 
-        config.fps, 
-        Size(config.width, config.height), 
+        config.output_file,
+        VideoWriter::fourcc('I', 'Y', 'U', 'V'),
+        config.fps,
+        Size(config.width, config.height),
         true
     );
     if (!writer.isOpened()) return -1;
