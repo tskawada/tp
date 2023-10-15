@@ -96,11 +96,8 @@ int afterimage_timelapse(Config config, Input input_att) {
 
 int main(int argc, char *argv[]) {
     Config config;
-    if (argc == 1) {
-        config = config_loader("../assets/example.cfg");
-    } else if (argc == 2) {
-        config = config_loader(argv[1]);
-    }
+    if (argc == 1) config = config_loader("../assets/example.cfg");
+    else if (argc == 2) config = config_loader(argv[1]);
     
     Input input_att = get_input_attributes(config.input_folder);
     if (config.num_of_frames == 0) config.num_of_frames = input_att.file_num;
@@ -111,11 +108,8 @@ int main(int argc, char *argv[]) {
 
     config_printer(config);
     
-    if (config.mode == 0) {
-        normal_timelapse(config, input_att);
-    } else if (config.mode == 1) {
-        afterimage_timelapse(config, input_att);
-    }
+    if (config.mode == 0) normal_timelapse(config, input_att);
+    else if (config.mode == 1) afterimage_timelapse(config, input_att);
 
     return 0;
 }
