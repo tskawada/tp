@@ -26,10 +26,11 @@ int normal_timelapse(Config config, Input input_att) {
         true
     );
     if (!writer.isOpened()) return -1;
+
     for (int i = 1; i <= config.num_of_frames; i++) {
         eta.update();
 
-        sprintf(image_name, "%s/%d.%s", config.output_file.c_str(), i, input_att.file_extension.c_str());
+        sprintf(image_name, "%s/%d.%s", config.input_folder.c_str(), i, input_att.file_extension.c_str());
 
         image = imread(image_name);
         writer.write(image);
