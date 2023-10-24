@@ -13,7 +13,11 @@ mkdir build
 cd build
 cmake ..
 make
-./tp ./assets/example.cfg
+./tp /path/to/config/file
+```
+If necessary, please use the following command to install tp.
+```
+sudo make install
 ```
 
 https://github.com/tskawada/tp/assets/94617881/6e48ffa0-13ba-4430-88b0-aa77a735bfb5

@@ -17,3 +17,6 @@ target_link_libraries(tp
 )
 
 target_compile_options(tp PUBLIC -O2)
+
+install(TARGETS tp
+        DESTINATION /usr/local/bin)
