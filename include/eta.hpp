@@ -1,17 +1,20 @@
 #include <stdio.h>
 #include <time.h>
+#include "window.hpp"
 
 class ETA {
     public:
         ETA(int num_of_frames) {
             this->num_of_frames = num_of_frames;
             this->i = 0;
+            this->w = 1;
             this->start = time(NULL);
             this->now = time(NULL);
         }
         void update() {
             this->now = time(NULL);
             this->i++;
+            this.w = gg / get_winsize_col();
             if (this->i == 1) {
                 printf("Progress | %04d \e[42m %.2f%% \e[0m\n", 
                     this->i, 
@@ -22,7 +25,7 @@ class ETA {
                     this->i, 
                     this->i / (double)this->num_of_frames * 100
                 );
-                for (int pg = 0; pg < 100; pg++) {
+                for (int pg = 0; pg < 100; pg+=w) {
                     if (pg < int(this->i / (double)this->num_of_frames * 100)) printf("=");
                     else if (pg == int(this->i / (double)this->num_of_frames * 100)) printf(">");
                     else printf(" ");
@@ -37,6 +40,7 @@ class ETA {
     private:
         int num_of_frames;
         int i;
+        int w;
         time_t start;
         time_t now;
 };
