@@ -30,55 +30,84 @@ void split_string(const string& input, char delimiter, string& key, string& valu
 
 int config_checker(Config config) {
     if (config.input_folder == "") {
-        cerr << "Error: input_folder is not set." << endl;
-        cerr << "Please set input_folder in config.txt." << endl;
+        cerr << "Error: input_folder is not set. Please set input_folder in config.txt." << endl;
         exit(1);
     }
     if (config.output_file == "") {
-        cerr << "Error: output_file is not set." << endl;
-        cerr << "Please set output_file in config.txt." << endl;
+        cerr << "Error: output_file is not set. Please set output_file in config.txt." << endl;
         exit(1);
     }
     if (config.num_of_frames == 0) {
-        cout << "Info: num_of_frames is not set" << endl;
-        cout << "All images in input_folder will be used." << endl;
+        cout << "Info: num_of_frames is not set. All images in input_folder will be used." << endl;
     }
     if (config.fps == 0.0) {
-        cerr << "Error: fps is not set or invalid." << endl;
-        cerr << "Please set fps as a float number in config.txt." << endl;
+        cerr << "Error: fps is not set or invalid. Please set fps as a float number in config.txt." << endl;
         exit(1);
     }
     if (config.mode == 1) {
         if (config.threshold == 0) {
-            cerr << "Error: threshold is not set or invalid." << endl;
-            cerr << "Please set threshold as a positive integer in config.txt." << endl;
+            cerr << "Error: threshold is not set or invalid. Please set threshold as a positive integer in config.txt." << endl;
             exit(1);
         }
         if (config.alpha == 0.0) {
-            cerr << "Error: alpha is not set or invalid." << endl;
-            cerr << "Please set alpha as a float number in config.txt." << endl;
+            cerr << "Error: alpha is not set or invalid. Please set alpha as a float number in config.txt." << endl;
             exit(1);
         }
     } else if (config.mode != 0) {
-        cerr << "Error: mode is invalid." << endl;
-        cerr << "mode must be 0 or 1." << endl;
+        cerr << "Error: mode is invalid. mode must be 0 or 1." << endl;
         exit(1);
     }
     return 0;
 }
 
 void config_printer(Config config) {
-    cout << "********************************************" << endl;
-    cout << "input_folder: " << config.input_folder << endl;
-    cout << "output_file: " << config.output_file << endl;
-    cout << "mode: " << config.mode << endl;
-    cout << "width: " << config.width << endl;
-    cout << "height: " << config.height << endl;
-    cout << "num_of_frames: " << config.num_of_frames << endl;
-    cout << "fps: " << config.fps << endl;
-    if (config.threshold != 0) cout << "threshold: " << config.threshold << endl;
-    if (config.alpha != 0.0) cout << "alpha: " << config.alpha << endl;
-    cout << "********************************************" << endl;
+    // get the longest string length of values
+    int max_length = 0;
+    if (config.input_folder.length() > max_length) max_length = config.input_folder.length();
+    if (config.output_file.length() > max_length) max_length = config.output_file.length();
+    if (to_string(config.mode).length() > max_length) max_length = to_string(config.mode).length();
+    if (to_string(config.width).length() > max_length) max_length = to_string(config.width).length();
+    if (to_string(config.height).length() > max_length) max_length = to_string(config.height).length();
+    if (to_string(config.num_of_frames).length() > max_length) max_length = to_string(config.num_of_frames).length();
+    if (to_string(config.fps).length() > max_length) max_length = to_string(config.fps).length();
+    if (to_string(config.threshold).length() > max_length) max_length = to_string(config.threshold).length();
+    if (to_string(config.alpha).length() > max_length) max_length = to_string(config.alpha).length();
+
+    for (int n = 0; n < 20 + max_length; n++) cout << "-";
+    cout << endl;
+    cout << "| input_folder  | " << config.input_folder;
+    for (int n = 0; n < max_length - config.input_folder.length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| output_file   | " << config.output_file;
+    for (int n = 0; n < max_length - config.output_file.length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| mode          | " << config.mode;
+    for (int n = 0; n < max_length - to_string(config.mode).length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| width         | " << config.width;
+    for (int n = 0; n < max_length - to_string(config.width).length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| height        | " << config.height;
+    for (int n = 0; n < max_length - to_string(config.height).length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| num_of_frames | " << config.num_of_frames;
+    for (int n = 0; n < max_length - to_string(config.num_of_frames).length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+    cout << "| fps           | " << config.fps;
+    for (int n = 0; n < max_length - to_string(config.fps).length() + 8; n++) cout << " ";
+    cout << "|" << endl;
+    if (config.threshold != 0) {
+        cout << "| threshold     | " << config.threshold;
+        for (int n = 0; n < max_length - to_string(config.threshold).length() + 1; n++) cout << " ";
+        cout << "|" << endl;
+    }
+    if (config.alpha != 0.0) {
+        cout << "| alpha         | " << config.alpha;
+        for (int n = 0; n < max_length - to_string(config.alpha).length() + 8; n++) cout << " ";
+        cout << "|" << endl;
+    }
+    for (int n = 0; n < 20 + max_length; n++) cout << "-";
+    cout << endl;
 }
 
 Config config_loader(string path) {
