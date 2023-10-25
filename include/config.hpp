@@ -60,6 +60,19 @@ int config_checker(Config config) {
     return 0;
 }
 
+void print_one_attribute(string key, string value, int max_length) {
+    // if value is string, print with quotation marks
+    cout << key << value;
+    for (int n = 0; n < max_length - value.length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+}
+
+void print_one_attribute(string key, int value, int max_length) {
+    cout << key << value;
+    for (int n = 0; n < max_length - to_string(value).length() + 1; n++) cout << " ";
+    cout << "|" << endl;
+}
+
 void config_printer(Config config) {
     // get the longest string length of values
     int max_length = 0;
@@ -75,36 +88,19 @@ void config_printer(Config config) {
 
     for (int n = 0; n < 20 + max_length; n++) cout << "-";
     cout << endl;
-    cout << "| input_folder  | " << config.input_folder;
-    for (int n = 0; n < max_length - config.input_folder.length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| output_file   | " << config.output_file;
-    for (int n = 0; n < max_length - config.output_file.length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| mode          | " << config.mode;
-    for (int n = 0; n < max_length - to_string(config.mode).length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| width         | " << config.width;
-    for (int n = 0; n < max_length - to_string(config.width).length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| height        | " << config.height;
-    for (int n = 0; n < max_length - to_string(config.height).length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| num_of_frames | " << config.num_of_frames;
-    for (int n = 0; n < max_length - to_string(config.num_of_frames).length() + 1; n++) cout << " ";
-    cout << "|" << endl;
-    cout << "| fps           | " << config.fps;
-    for (int n = 0; n < max_length - to_string(config.fps).length() + 8; n++) cout << " ";
-    cout << "|" << endl;
+
+    print_one_attribute("| input_folder  | ", config.input_folder, max_length);
+    print_one_attribute("| output_file   | ", config.output_file, max_length);
+    print_one_attribute("| mode          | ", config.mode, max_length);
+    print_one_attribute("| width         | ", config.width, max_length);
+    print_one_attribute("| height        | ", config.height, max_length);
+    print_one_attribute("| num_of_frames | ", config.num_of_frames, max_length);
+    print_one_attribute("| fps           | ", config.fps, max_length);
     if (config.threshold != 0) {
-        cout << "| threshold     | " << config.threshold;
-        for (int n = 0; n < max_length - to_string(config.threshold).length() + 1; n++) cout << " ";
-        cout << "|" << endl;
+        print_one_attribute("| threshold     | ", config.threshold, max_length);
     }
     if (config.alpha != 0.0) {
-        cout << "| alpha         | " << config.alpha;
-        for (int n = 0; n < max_length - to_string(config.alpha).length() + 8; n++) cout << " ";
-        cout << "|" << endl;
+        print_one_attribute("| alpha         | ", config.alpha, max_length);
     }
     for (int n = 0; n < 20 + max_length; n++) cout << "-";
     cout << endl;
