@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 2.8...3.13)
 project(step1)
 set(SOURCE_FILE tp.cpp)
 
