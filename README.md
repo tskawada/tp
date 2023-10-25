@@ -16,7 +16,7 @@ make
 ./tp /path/to/config/file
 ```
 If necessary, please use the following command to install tp.
-```
+```bash
 sudo make install
 ```
 
