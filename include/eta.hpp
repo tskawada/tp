@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include "window.hpp"
 
 class ETA {
     public:
@@ -10,6 +11,7 @@ class ETA {
             this->now = time(NULL);
         }
         void update() {
+            int winsize_col = get_winsize().ws_col - 50;
             this->now = time(NULL);
             this->i++;
             if (this->i == 1) {
@@ -22,9 +24,9 @@ class ETA {
                     this->i, 
                     this->i / (double)this->num_of_frames * 100
                 );
-                for (int pg = 0; pg < 100; pg++) {
-                    if (pg < int(this->i / (double)this->num_of_frames * 100)) printf("=");
-                    else if (pg == int(this->i / (double)this->num_of_frames * 100)) printf(">");
+                for (int pg = 0; pg < winsize_col; pg++) {
+                    if (pg == int(this->i / (double)this->num_of_frames * winsize_col)) printf(">");
+                    if (pg < int(this->i / (double)this->num_of_frames * winsize_col)) printf("=");
                     else printf(" ");
                 }
                 printf(" | ETA: %02d:%02d:%02d\n", 
