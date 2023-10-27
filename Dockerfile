@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
+FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 ARG OPENCV_VERSION=4.5.3
@@ -130,4 +130,4 @@ RUN nvcc -o tp tp.cu \
     -lopencv_xobjdetect \
     -lopencv_xphoto
 
-RUN mkdir build && mv tp /workspace/build/tp
+RUN mv tp /workspace/build/tp
