@@ -8,7 +8,7 @@ However, setting up the environment can be somewhat more complex compared to nor
 ### 1. Build the Dockerfile
 By building the provided Dockerfile, you can set up the following environment.
 
-> Ubuntu 22.04 with CUDA 11.8.0 (runtime)  
+> Ubuntu 22.04 with CUDA 11.8.0 (devel)  
 > CUDA-enabled OpenCV 4.5.3
 
 The following command is used for building.
@@ -21,17 +21,19 @@ To utilize the GPU within the container, don't forget to include the `--gpus` op
 ```bash
 docker run -it --gpus all tp-container bash
 ```
-Execute nvidia-smi inside the container to ensure that the GPU is properly recognized.
+Execute `nvidia-smi` inside the container to ensure that the GPU is properly recognized.
 
 ### 3. Running tp
-Everything else is the same as usual. Place the jpg sequence and edit the config file accordingly. TP will return results more quickly!
+Everything else is the same as usual. Place the jpg sequence and edit the config file accordingly. tp will return results more quickly!
 
 ## Benchmark
 ### Environment
+The measurement environment is as follows:
 > CPU: Intel(R) Core(TM) i5-9500 CPU @ 3.00GHz  
 > GPU: NVIDIA GeForce RTX 3090 Ti  
 > Memory: 32GB  
 
+When compared to the case without using CUDA, it contributed to approximately a 24% reduction in processing time.
 |           |   w/o CUDA   |     w/ CUDA    |
 | --------- | :----------: | :------------: |
 | time      | 5 min 32 sec |  4 min 12 sec  |

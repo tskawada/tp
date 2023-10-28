@@ -26,7 +26,8 @@ sudo make install
 https://github.com/tskawada/tp/assets/94617881/6e48ffa0-13ba-4430-88b0-aa77a735bfb5
 
 ## Usage
-All you need to prepare is a jpg images and a configuration file!
+All you need to prepare is jpg images and a configuration file!  
+The template for the configuration file can be found in `assets/`.
 
 - Brightness adjustment and deflicker of jpg files must have been carried out beforehand. [LRTimelapse](https://lrtimelapse.com/) can be used for this.
 - jpg filenames must be sorted in time order starting with 1.
