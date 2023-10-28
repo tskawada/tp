@@ -7,9 +7,6 @@ It generates uncompressed AVI files. Compression is usually required as a post-p
 [YouTube video](https://youtu.be/ZtHwgKmgkO4)
 
 ## Build and Run
-
-**This is the usage when not using CUDA. If you want to use CUDA, please refer to [USECUDA.md](./docs/USECUDA.md)**
-
 ```bash
 sudo apt install libopencv-dev cmake
 mkdir build
