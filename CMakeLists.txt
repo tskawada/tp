@@ -16,7 +16,7 @@ target_link_libraries(tp
     ${OpenCV_LIBRARIES}
 )
 
-target_compile_options(tp PUBLIC -O2)
+target_compile_options(tp PUBLIC -O2 -Wall)
 
 install(TARGETS tp
         DESTINATION /usr/local/bin)

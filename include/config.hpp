@@ -60,22 +60,22 @@ int config_checker(Config config) {
     return 0;
 }
 
-void print_one_attribute(string key, string value, int max_length) {
+void print_one_attribute(string key, string value, long unsigned int max_length) {
     // if value is string, print with quotation marks
     cout << key << value;
-    for (int n = 0; n < max_length - value.length() + 1; n++) cout << " ";
+    for (long unsigned int n = 0; n < max_length - value.length() + 1; n++) cout << " ";
     cout << "|" << endl;
 }
 
-void print_one_attribute(string key, int value, int max_length) {
+void print_one_attribute(string key, int value, long unsigned int max_length) {
     cout << key << value;
-    for (int n = 0; n < max_length - to_string(value).length() + 1; n++) cout << " ";
+    for (long unsigned int n = 0; n < max_length - to_string(value).length() + 1; n++) cout << " ";
     cout << "|" << endl;
 }
 
 void config_printer(Config config) {
     // get the longest string length of values
-    int max_length = 0;
+    long unsigned int max_length = 0;
     if (config.input_folder.length() > max_length) max_length = config.input_folder.length();
     if (config.output_file.length() > max_length) max_length = config.output_file.length();
     if (to_string(config.mode).length() > max_length) max_length = to_string(config.mode).length();
@@ -86,7 +86,7 @@ void config_printer(Config config) {
     if (to_string(config.threshold).length() > max_length) max_length = to_string(config.threshold).length();
     if (to_string(config.alpha).length() > max_length) max_length = to_string(config.alpha).length();
 
-    for (int n = 0; n < 20 + max_length; n++) cout << "-";
+    for (long unsigned int n = 0; n < 20 + max_length; n++) cout << "-";
     cout << endl;
 
     print_one_attribute("| input_folder  | ", config.input_folder, max_length);
@@ -102,7 +102,7 @@ void config_printer(Config config) {
     if (config.alpha != 0.0) {
         print_one_attribute("| alpha         | ", config.alpha, max_length);
     }
-    for (int n = 0; n < 20 + max_length; n++) cout << "-";
+    for (long unsigned int n = 0; n < 20 + max_length; n++) cout << "-";
     cout << endl;
 }
 

@@ -18,19 +18,19 @@ Input get_input_attributes(string input_dir) {
     vector<string> files;
     
     glob((input_dir + "*.jpg").c_str(), 0, NULL, &globbuf);
-    for (int i = 0; i < globbuf.gl_pathc; i++) {
+    for (long unsigned int i = 0; i < globbuf.gl_pathc; i++) {
         files.push_back(globbuf.gl_pathv[i]);
     }
     glob((input_dir + "*.jpeg").c_str(), 0, NULL, &globbuf);
-    for (int i = 0; i < globbuf.gl_pathc; i++) {
+    for (long unsigned int i = 0; i < globbuf.gl_pathc; i++) {
         files.push_back(globbuf.gl_pathv[i]);
     }
     glob((input_dir + "*.JPG").c_str(), 0, NULL, &globbuf);
-    for (int i = 0; i < globbuf.gl_pathc; i++) {
+    for (long unsigned int i = 0; i < globbuf.gl_pathc; i++) {
         files.push_back(globbuf.gl_pathv[i]);
     }
     glob((input_dir + "*.JPEG").c_str(), 0, NULL, &globbuf);
-    for (int i = 0; i < globbuf.gl_pathc; i++) {
+    for (long unsigned int i = 0; i < globbuf.gl_pathc; i++) {
         files.push_back(globbuf.gl_pathv[i]);
     }
     globfree(&globbuf);
