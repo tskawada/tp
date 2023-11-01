@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8...3.13)
-project(step1)
+project(tp)
 set(SOURCE_FILE tp.cpp)
 
 find_package(OpenCV REQUIRED)
@@ -16,7 +16,7 @@ target_link_libraries(tp
     ${OpenCV_LIBRARIES}
 )
 
-target_compile_options(tp PUBLIC -O2 -Wall)
+target_compile_options(tp PUBLIC -O2 -Wall -Wextra)
 
 install(TARGETS tp
         DESTINATION /usr/local/bin)
