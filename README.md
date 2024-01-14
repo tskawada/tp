@@ -32,11 +32,11 @@ All you need to prepare is a jpg images and a configuration file!
 ```conf
 input_folder=/path/to/input
 output_file=/path/to/output/movie.avi
-num_of_frames=200 # Specifies the number of frames to be used. If not specified, all images in input_folder will be used
-fps=24.0  # frame per second
-mode=0  # 0: normal, 1: afterimage
-threshold=20 # Specifies the brightness threshold of the pixel to be synthesized in comparison brightness synthesis
-alpha=1.0  # Specifies the afterimage level
+num_of_frames=200  # Specifies the number of frames to be used. If not specified, all images in input_folder will be used
+fps=24.0           # frame per second
+mode=0             # 0: normal, 1: afterimage
+threshold=20       # Specifies the brightness threshold of the pixel to be synthesized in comparison brightness synthesis
+alpha=1.0          # Specifies the afterimage level
 ```
 
 ## License
