@@ -1,18 +1,18 @@
 #include <opencv2/opencv.hpp>
+#include <string>
+
+using namespace std;
 
 struct ImageSize {
     int width;
     int height;
 };
 
-ImageSize get_image_size(Config config) {
+ImageSize get_image_size(string filename) {
     ImageSize image_size;
-    cv::Mat image = cv::Mat::zeros(config.height, config.width, CV_8UC3);
+    cv::Mat image = cv::Mat::zeros(0, 0, CV_8UC3);
 
-    char image_name[100];
-    sprintf(image_name, "../data/from2/%d.jpg", 1);
-    
-    image = cv::imread(image_name);
+    image = cv::imread(filename);
     
     image_size.width = image.cols;
     image_size.height = image.rows;

@@ -10,11 +10,12 @@ https://github.com/tskawada/tp/assets/94617881/30762c51-18da-4304-bc8a-a4528c4c8
 The images will be placed in any folder as follows:
 ```
 [input_folder]
-  ├── 1.jpg
-  ├── 2.jpg
-  ├── 3.jpg
+  ├── xxx.jpg
+  ├── yyy.jpg
+  ├── zzz.jpg
   ...
 ```
+Automatically sorted based on exif data.
 
 ## 2. How to use Afterimage mode
 Time-lapse with afterimage mode is not the best option for all sequences. This mode is useful, for example, for creating star trail movies by leaving star images.

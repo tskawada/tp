@@ -26,13 +26,11 @@ https://github.com/tskawada/tp/assets/94617881/6e48ffa0-13ba-4430-88b0-aa77a735b
 All you need to prepare is a jpg images and a configuration file!
 
 - Brightness adjustment and deflicker of jpg files must have been carried out beforehand. [LRTimelapse](https://lrtimelapse.com/) can be used for this.
-- jpg filenames must be sorted in time order starting with 1.
 - Comment out (#) is valid in the configuration file.
 - In normal mode (mode: 0), alpha and threshold need not be specified. If specified, it is ignored.
 ```conf
-input_folder=/path/to/input
+input_folder=/path/to/input/
 output_file=/path/to/output/movie.avi
-num_of_frames=200  # Specifies the number of frames to be used. If not specified, all images in input_folder will be used
 fps=24.0           # frame per second
 mode=0             # 0: normal, 1: afterimage
 threshold=20       # Specifies the brightness threshold of the pixel to be synthesized in comparison brightness synthesis
@@ -49,7 +47,3 @@ There are several examples of this work. Not all use tp.
 ## Notes
 ### Tips and Setting guide
 see [HOWTO.md](./docs/HOWTO.md)
-
-
-
-
